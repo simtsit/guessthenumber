@@ -1,0 +1,29 @@
+<!--The content below is only a placeholder and can be replaced.-->
+
+  <!-- {{secretNumber}}) -->
+<div class="row">
+  <div class="col-md-12 text-center">
+    <h1>
+      {{ title }}!
+    </h1>
+  </div>
+
+  <div class="col-md-12 text-center top20">
+    <h2>Type a number from 1 to 100: </h2>
+    <input type="number" value="0" [value]="numberToChecktest" (input)="numberToCheck=$event.target.value" />
+    <button class="top20 btn-primary" (click)="checkNumber($event)">Check!</button>
+  </div>
+
+  <div class="text-center col-md-12 top20">
+    Number of tries: {{tries}}
+  </div>
+
+  <div class="col-md-3"></div>
+    <div class="col-md-6">
+      <p *ngIf="playerChoice<secretNumber" class="top20 alert alert-success">{{numberToCheck}} is too small! Try a bigger number!</p>
+      <p *ngIf="playerChoice>secretNumber" class="top20 alert alert-danger">{{numberToCheck}} is too big! Try a smaller number!</p>
+      <p *ngIf="playerChoice==secretNumber" class="top20 alert alert-primary">That's it! You found it! It was {{numberToCheck}}!!</p>
+    </div>
+  <div class="col-md-3"></div>
+</div>
+
